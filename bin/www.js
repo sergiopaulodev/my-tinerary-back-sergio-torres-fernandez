@@ -1,31 +1,24 @@
 #!/usr/bin/env node
-
+// en este archivo levantamos el servidor
 /**
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('my-tinerary-back-sergio-torres-fernandez:server');
-var http = require('http');
 
-/**
- * Get port from environment and store in Express.
- */
+import app from '../app.js'; //configuracion del servidor
+import debug from 'debug'; //modulo de debuggeo
+import http from 'http'; //modulo para crear servidores HT
 
-var port = normalizePort(process.env.PORT || '3000');
+
+// PORTS
+//procces.env guarda las configuraciones de las variables de entorno (variables muuuuy delicadas, es necesario protegerlas, se configurar con un modulo llamado dotenv)
+let port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
-
-var server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port);
+//START SERVING
+var server = http.createServer(app); //creo un servidor normalizado con HTTP
+let ready = () => console.log('server ready on port ' +port);
+server.listen(port, ready); //ESCUCHO el puerto para que empiece a funcionar (a levantarse)
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -34,7 +27,7 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  let port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -58,7 +51,7 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
+  let bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
 
@@ -82,8 +75,8 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
+  let addr = server.address();
+  let bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
