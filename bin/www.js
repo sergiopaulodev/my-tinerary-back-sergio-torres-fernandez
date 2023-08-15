@@ -5,9 +5,10 @@
  */
 
 
-import app from '../app.js'; //configuracion del servidor
-import debug from 'debug'; //modulo de debuggeo
-import http from 'http'; //modulo para crear servidores HT
+import app from '../app.js';            //configuracion del servidor
+import debug from 'debug';          //modulo de debuggeo
+import http from 'http';            //modulo para crear servidores HT
+import { connect } from 'mongoose';
 
 
 // PORTS
@@ -17,7 +18,12 @@ app.set('port', port);
 
 //START SERVING
 var server = http.createServer(app); //creo un servidor normalizado con HTTP
-let ready = () => console.log('server ready on port ' +port);
+let ready = () => {
+    console.log('server ready on port ' +port);
+    connect(process.env.URI_LINK)
+        .then(() => console.log('DataBase connected from www.js'))
+        .catch(err => console.log(err))
+}
 server.listen(port, ready); //ESCUCHO el puerto para que empiece a funcionar (a levantarse)
 server.on('error', onError);
 server.on('listening', onListening);
