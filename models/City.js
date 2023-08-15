@@ -21,6 +21,6 @@ let schema = new Schema({
 //y necesito relacionar la propiedad admin_id con la colecion users
 //esto lo logro REFERENCIANDO con la propiedad ref: 'collection-a-referenciar'
 
-let City = model(collection, schema)
+let City = model(collection, schema);
 
-export default City
+export default City;
