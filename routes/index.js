@@ -1,17 +1,16 @@
 import express from 'express';
 //el enrutador principal llamara a todos los recursos y los va a enrutar
-import userRouter from './users.js'
+import usersRouter from './users.js'
+import citiesRouter from './cities.js'
+import itineriesRouter from './itineraries.js'
+import activitiesRouter from './activities.js'
+
 let router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express-index' });
-});
-
-router.get('/cities', function(req, res, next) {
-  res.render('index', { title: 'Express Cities' });
-});
-
 //obligo al enrutador principal a usar las rutas del enrutador del recurso
-router.use('/users', userRouter)
+router.use('/users', usersRouter)
+router.use('/cities', citiesRouter)
+router.use('/itineraries', itineriesRouter)
+router.use('/activities',activitiesRouter )
+
 export default router;
