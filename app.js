@@ -12,6 +12,7 @@ import path from 'path';
 import logger from 'morgan'                 // para registrar cada una de las peticiones
 import errorHandler from './middlewares/errorHandler.js';
 import notFoundHandler from './middlewares/notFoundHandler.js';
+import cors from 'cors'
 
 // var indexRouter = require('./routes/index');  
 import indexRouter from './routes/index.js'     //este enrutador va a llamar a TODOS los otros recursos 
@@ -33,6 +34,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));                             //obligo al servidor a registrar una peticion con el modulo de logger/morgan
 app.use(express.json());                                    //obligo al servidor a manipular/leer json
 app.use(express.urlencoded({ extended: false }));           //obliga al servidor a leer params/queries
+app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')));    //obligo al servidor a usar los archivos static de la carpeta public
 
 //ROUTER
