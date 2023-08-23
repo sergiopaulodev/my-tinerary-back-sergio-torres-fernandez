@@ -17,7 +17,7 @@ export default async (req, res, next) => {
         }
 
         if (req.query.city){
-            search.city = new RegExp(req.query.city, 'i')
+            search.city = new RegExp('^' + req.query.city, 'i')
         }
 
         // // new RegExp(req.query.title, 'i')
