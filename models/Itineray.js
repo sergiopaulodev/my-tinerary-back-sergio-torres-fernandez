@@ -9,6 +9,7 @@
     duration: {type: Number},
     photo: {type: String, required: true},
     tags: {type: Array},
+    comments: {type: String},
     city_id: {type: Types.ObjectId, required: true, ref: 'cities'}
 
  })

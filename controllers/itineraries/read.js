@@ -2,7 +2,17 @@ import Itinerary from "../../models/Itineray.js";
 
 export default async (req, res, next) => {
     try {
-        let allItinerary = await Itinerary.find()
+        
+        let search = {}
+
+        if (req.query.city_id) {
+            search.city_id = req.query.city_id
+        }
+        
+        
+        let allItinerary = await Itinerary
+            .find(search)
+            .populate('city_id')
 
         if (allItinerary.length > 0){
             return res.status(200).json({
