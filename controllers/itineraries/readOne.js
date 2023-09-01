@@ -4,8 +4,8 @@ export default async (req, res, next) => {
     try {
 
         let oneItinerary = await Itinerary
-        .findById(req.paramas._id)
-        .select('name price duration')
+        .findById(req.params._id)
+        // .select('name price duration')
 
         if (oneItinerary){
             return res.status(200).json({
