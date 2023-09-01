@@ -4,7 +4,7 @@ export default async (req, res, next) => {
     try {
         let oneCity = await City
         .findById(req.params._id)
-        .select('country city photo smalldescription')
+        .select('')
 
         if (oneCity){
             return res.status(200).json({

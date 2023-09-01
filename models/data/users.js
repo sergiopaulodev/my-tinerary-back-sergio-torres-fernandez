@@ -13,14 +13,14 @@ const users = [{
     name: "Cinthia",
     lastName: "Di Risio",
     mail: "cin@mh.com",
-    photo: "https://static.wikia.nocookie.net/fma/images/2/26/MouthyMei.JPG/revision/latest?cb=20111223205242&path-prefix=es",
+    photo: "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/0a982a46-6992-4157-8032-8b42cc99bbd2.b5c26b0f8677b1562fc15dda2715f735.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
     password: "Hola1234",
     country: "Argentina"
 },{
     name: "Franco",
     lastName: "Sosa",
     mail: "fran@mh.com",
-    photo: "https://i.pinimg.com/originals/42/04/77/4204771e1c54c2b9afa36f668261e7bd.gif",
+    photo: "https://randomuser.me/api/portraits/lego/8.jpg",
     password: "Hola1234",
     country: "Argentina"
 }]

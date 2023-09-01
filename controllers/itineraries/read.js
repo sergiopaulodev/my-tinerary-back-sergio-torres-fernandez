@@ -12,7 +12,13 @@ export default async (req, res, next) => {
         
         let allItinerary = await Itinerary
             .find(search)
-            .populate('city_id')
+            .populate(
+                {path:'city_id',
+                populate:{
+                    path: 'admin_id'
+                }
+                }
+            )
 
         if (allItinerary.length > 0){
             return res.status(200).json({
