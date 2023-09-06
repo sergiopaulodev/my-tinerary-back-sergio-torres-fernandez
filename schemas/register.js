@@ -13,7 +13,7 @@ let registerSchema = joi.object({
     country: joi.required(),
     //no obligatorio
     photo: joi.string().required().uri(),
-    lastname: joi.string().min(3).max(20).empty('').messages({
+    lastName: joi.string().min(3).max(20).empty('').messages({
      "string.min":"name must have at least 3 characters please",
      "string.max":"name must be less than 21 characters please"
     })
