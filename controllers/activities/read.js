@@ -2,6 +2,13 @@ import Activity from '../../models/Activity.js';
 
 export default async(req, res, next) => {
     try {
+
+        let search = {}
+
+        if (req.query.itinerary_id){
+            search.itinerary_id = req.query.itinerary_id
+        }
+
         let allActivities = await Activity.find()
 
         if (allActivities.length > 0){
