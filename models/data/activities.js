@@ -3,7 +3,7 @@ import { connect } from 'mongoose';
 import Activity from "../Activity.js";
 import Itinerary from "../Itineray.js";
 
-const actitivies = [{
+const activities = [{
     name: "Hikking Tour",
     photo: "https://i.im.ge/2022/09/07/OfQSzP.Depositphotos-111788638-s-2015.webp",
     itinerary_id: "Mount Fuji"
@@ -239,4 +239,4 @@ async function creatActivities(arrayActivities) {
     }
 }
 
-creatActivities(actitivies)
+creatActivities(activities)
