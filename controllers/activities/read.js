@@ -8,8 +8,9 @@ export default async(req, res, next) => {
         if (req.query.itinerary_id){
             search.itinerary_id = req.query.itinerary_id
         }
+        console.log(search);
 
-        let allActivities = await Activity.find()
+        let allActivities = await Activity.find(search).populate('itinerary_id')
 
         if (allActivities.length > 0){
             return res.status(200).json({

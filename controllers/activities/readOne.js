@@ -3,8 +3,8 @@ import Activity from '../../models/Activity.js';
 export default async(req, res, next) => {
     try {
         let oneActivity = await Activity
-        .findById(req.params._id)
-        .select('name')
+        .findById(req.params._id).populate('itinerary_id')
+        // .select('name')
 
         if (oneActivity) {
             return res.status(200).json({
