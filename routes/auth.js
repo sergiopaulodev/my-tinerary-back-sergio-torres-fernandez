@@ -19,6 +19,7 @@ import signInSchema from "../schemas/signin.js";
 import read from "../controllers/users/read.js";
 
 
+
 const authRouter = Router()
 
 
@@ -58,6 +59,7 @@ authRouter.post(
 
 
 authRouter.get('/', read)
+
 
 
 export default authRouter;
